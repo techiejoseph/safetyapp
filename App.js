@@ -9,6 +9,7 @@ import Register from './screens/Register';
 import School from './screens/School';
 import Police from './screens/Police';
 import Teacher from './screens/Teacher';
+import { View, StyleSheet, Button ,Text} from 'react-native';
 const Drawer = createDrawerNavigator();
 
 export default function App() {
@@ -16,7 +17,6 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator drawerContent={props => <DrawerMenu {...props} />}>
         <Drawer.Screen name="Dashboard" component={Dashboard} />
-     
         <Drawer.Screen name="Register School" component={School} />
         <Drawer.Screen name="Register teacher" component={Teacher} />
         <Drawer.Screen name="Register Police" component={Police} />

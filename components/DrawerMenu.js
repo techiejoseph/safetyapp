@@ -7,7 +7,7 @@ const DrawerMenu = (props) => {
   return (
     <DrawerContentScrollView {...props}>
       <View style={{ padding: 20 }}>
-        <Text style={{ fontSize: 24 }}>My App</Text>
+        <Text style={{ fontSize: 24 }}>SafetyApp</Text>
       </View>
       <DrawerItemList {...props} />
     </DrawerContentScrollView>

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "recipeapp",
+    "name": "safetyapp",
     "slug": "recipeapp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +18,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.techiejose.safetyapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cdc011b8-ebf9-465f-ab23-0d0029c71bb9"
+      }
     }
   }
 }

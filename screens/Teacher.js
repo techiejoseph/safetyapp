@@ -1,9 +1,8 @@
 // src/screens/Register.js
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button,ScrollView } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-import TextField from '@mui/material/TextField';
-
+import { TextInput, HelperText } from 'react-native-paper';
 const Teacher = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
@@ -12,172 +11,202 @@ const Teacher = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Controller
+    <ScrollView style={styles.container}contentContainerStyle={{paddingBottom: 60}}>
+       <Controller
         control={control}
-        name="fname"
-        rules={{ required: true }}
+        name="firstname"
+        defaultValue=""
+        rules={{
+          required: 'First Name is required',
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="First Name"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.fname}
-            helperText={errors.fname ? "First Name is required." : ""}
-            fullWidth
-          />
-        )}
-      />
-      <Controller
-        control={control}
-        name="lname"
-        rules={{ required: true }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="Last Name"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.lname}
-            helperText={errors.lname ? "Last Name is required." : ""}
-            fullWidth
-          />
-        )}
-      />
-      <Controller
-        control={control}
-        name="zone"
-        rules={{ required: true }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="School Zone"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.zone}
-            helperText={errors.zone ? "Zone is required." : ""}
-           
-            fullWidth
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="First Name"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.firstname && <HelperText type="error">{errors.firstname.message}</HelperText>}
+          </View>
         )}
       />
        <Controller
+        control={control}
+        name="lastname"
+        defaultValue=""
+        rules={{
+          required: 'Last Name is required',
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="Last Name"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.lastname && <HelperText type="error">{errors.lastname.message}</HelperText>}
+          </View>
+        )}
+      />
+      <Controller
         control={control}
         name="email"
-        rules={{ required: true }}
+        defaultValue=""
+        rules={{
+          required: 'Email is required',
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+            message: 'Invalid email address',
+          }
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="Email"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.email}
-            helperText={errors.email ? "Email is required." : ""}
-           
-            fullWidth
-          />
-          
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="Email"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.email && <HelperText type="error">{errors.email.message}</HelperText>}
+          </View>
         )}
       />
-       <Controller
+      <Controller
         control={control}
         name="phone"
-        rules={{ required: true }}
+        defaultValue=""
+        rules={{
+          required: 'Phone is required',
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="Phone"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.phone}
-            helperText={errors.phone ? "Phone is required." : ""}
-            
-            fullWidth
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="Phone"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.phone && <HelperText type="error">{errors.phone.message}</HelperText>}
+          </View>
         )}
       />
-       <Controller
+      <Controller
         control={control}
         name="id"
-        rules={{ required: true }}
+        defaultValue=""
+        rules={{
+          required: 'ID is required',
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="ID"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.id}
-            helperText={errors.id ? "ID Number is required." : ""}
-            fullWidth
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="ID"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.id && <HelperText type="error">{errors.id.message}</HelperText>}
+          </View>
         )}
       />
-       <Controller
+      <Controller
         control={control}
         name="gender"
-        rules={{ required: true }}
+        defaultValue=""
+        rules={{
+          required: 'Gender is required',
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="Gender"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.gender}
-            helperText={errors.gender ? "Gender is required." : ""}
-            fullWidth
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="Gender"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.gender && <HelperText type="error">{errors.gender.message}</HelperText>}
+          </View>
         )}
       />
-       <Controller
+      <Controller
         control={control}
         name="username"
-        rules={{ required: true }}
+        defaultValue=""
+        rules={{
+          required: 'Username is required',
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="Username"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.username}
-            helperText={errors.username ? "Username is required." : ""}
-            fullWidth
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="Username"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.username && <HelperText type="error">{errors.username.message}</HelperText>}
+          </View>
         )}
       />
-       <Controller
+      <Controller
         control={control}
         name="password"
-        rules={{ required: true }}
+        defaultValue=""
+        rules={{
+          required: 'Password is required',
+        }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextField
-            label="Password"
-            variant="outlined"
-            onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            error={!!errors.password}
-            helperText={errors.password ? "Password is required." : ""}
-            type="password"
-            fullWidth
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              label="Password"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              mode="outlined"
+              style={styles.input}
+            />
+            {errors.password && <HelperText type="error">{errors.password.message}</HelperText>}
+          </View>
         )}
       />
-      <Button title="Register" onPress={handleSubmit(onSubmit)} />
-    </View>
+      
+      <Button title="Register" onPress={handleSubmit(onSubmit)}style={styles.button1} />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20 },
+  container: { flex: 1, padding: 20 ,
+    height:'100%',
+    marginBottom: 5,
+    paddingBottom:50
+  },
+  inputContainer: {
+    marginBottom: 15,
+  },
+  button1: {
+    marginBottom: 15,
+    backgroundColor:'black',
+    color:'black'
+  },
+  input: {
+    height: 50,
+  },
 });
 
 export default Teacher;
